@@ -1,31 +1,38 @@
+
 //Complete this code or write your own from scratch
 import java.util.*;
 
-class Solution{
-	public static void main(String []argh)
-	{
-        Map<String,Integer> record = new HashMap<>();
+class Solution {
+	public static void main(String[] argh) {
+		Stack<Character> stack = new Stack<>();
 		Scanner scan = new Scanner(System.in);
-		int n=scan.nextInt();
-		scan.nextLine();
-		for(int i=0;i<n;i++)
-		{
-			String name=scan.nextLine();
-			int phone=scan.nextInt();
-            record.put(name,phone);
-			scan.nextLine();
-		}
-		while(scan.hasNext())
-		{
-			String query=scan.nextLine();
-			if(record.containsKey(query)){
-				System.out.println(query+"="+record.get(query));
+		while (scan.hasNext()) {
+			String str = scan.nextLine();
+			boolean flag = true;
+			for (int i = 0; i < str.length(); i++) {
+				char ch = str.charAt(i);
+				if (ch == '(' || ch == '[' || ch == '{') {
+					stack.push(ch);
+				} else if ((ch == ')' || ch == '}' || ch == ']')) {
+					if (stack.isEmpty()) {
+						flag = false;
+						break;
+					}
+					char topEle = stack.pop();
+					if ((ch== ')' && topEle!='(') || (ch== ']' && topEle!='[') || (ch== '}' && topEle!='{')) {
+						flag = false;
+						break;
+					}
+				}
 			}
-			else{
-				System.out.println("Not found");
+			if (flag && stack.isEmpty()) {
+				System.out.println("True");
+			} else {
+				System.out.println("False");
 			}
-			
+
 		}
-        scan.close();
+
+		scan.close();
 	}
 }
