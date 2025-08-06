@@ -1,0 +1,68 @@
+import React,{useEffect, useState} from "react";
+import { TouchableOpacity,Text, Modal, FlatList } from "react-native";
+import { View } from "react-native-reanimated/lib/typescript/Animated";
+ 
+//name, empid, salary
+
+interface employeeObject {
+    name : string,
+    empId : number,
+    salary : number
+}
+
+const Test = (props : any) => {
+    const [data,setData] = useState<employeeObject[]>();
+    const [modalVisible,setModaleVisible] = useState<boolean>(false)
+    const exployeesURl = 'dumy://dufhaiuehfyh.com';
+    var avg : number = 0;
+    useEffect (() => {
+        //method1
+        fetch(exployeesURl)
+            .then(res => res.json()) 
+            .then(data => {
+                let sum = 0;
+                let cnt = 0;
+                data.map((item:employeeObject) => {
+                    sum = sum + item.salary;
+                    cnt++;
+                })
+                avg = sum/cnt;
+                var data1=data;
+                setData(data1.filter((item:employeeObject) => item.salary > avg));
+
+            })
+            .catch(error => console.log(error))
+
+       
+
+    },[])
+    const renderItem = (item : any) : React.JSX.Element=> {
+        return(
+            <View style={{gap:10, flexDirection : 'row'}}> 
+                <Text>{item.name}</Text>
+                <Text>{item.empId}</Text>
+                <Text>{item.salary}</Text>
+            </View>
+        )
+    }
+
+    
+    return (
+        <View style={{flex:1,justifyContent:'center',alignContent:'center',alignItems:'center'}}>
+        <TouchableOpacity style={{width:100,height:30,borderColor:'red',borderWidth:1}} 
+        onPress={()=>setModaleVisible(true)}>
+            <Text>Click here to get Employee Data</Text>
+        </TouchableOpacity>
+        <Modal visible={modalVisible}>
+        <FlatList 
+        data={data}
+        numColumns={3}
+        renderItem={(item) => renderItem(item)}>
+
+        </FlatList>
+        </Modal>
+        </View>
+    )
+}
+
+export default Test;
