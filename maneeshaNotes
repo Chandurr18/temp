@@ -1,0 +1,628 @@
+Yesterday I received MacBool and iPhone
+6th January 2024
+
+
+
+My Components:
+Avatar
+Date Picker
+lIst
+Progress Tracker
+TimeLine
+CDN Invocation (Content Delivery Network)
+Global Header
+UCJ Redirection Manager (Unified custom journey)
+Accordion
+Chips
+Choice selector
+Disclaimer and Information
+Drawers
+DropDown
+GCA
+Sliders
+ThankYou and ErrorPage
+ToolTip
+Android EncryptionDecrypion
+
+
+
+Practice
+⸻⸻⸻⸻—1st Practice Code⸻⸻⸻⸻⸻⸻-
+import React from 'react';
+import {
+  Text,
+  View,
+  StyleSheet,
+  Button,
+  Linking
+} from 'react-native';
+const App = () => {
+  return (
+    <View style={styles.body}>
+      <Text style={styles.text}>My First App</Text>
+      <Button title='youtube channel' onPress={() => {
+        Linking.openURL('https://
+youtube.com')}}></Button>
+</View>
+  )
+}
+const styles = StyleSheet.create({
+  body: {
+    flex: 1,
+    backgroundColor: '#0000ff',
+    alignItems: 'center',
+    textAlign: 'center',
+    justifyContent: 'center'
+  },
+  text: {
+    color: '#ffffff',
+    fontSize: 20,
+    fontStyle: 'italic',
+    margin: 10
+  }
+})
+export default App;
+⸻⸻⸻⸺2nd Practice Code⸻⸻⸻⸻⸻⸻⸺
+import React, { useState } from 'react';
+import {
+  Text,
+  View,
+  StyleSheet,
+  Button
+} from 'react-native';
+const App = () => {
+  const [name, setName]/*these names are optional*/ = useState('Maneesha')
+  const [session, setSession] = useState({ number: 6, title: 'state' })
+  const [current, setCurrent] = useState(true)
+  const onClickHandler = () => {
+    setName('Isha')
+    setSession({ number: 8, title: 'useState' })
+    setCurrent(false)
+  }
+  /* <Text style={styles.text}>{current?'current session':'next session'}</Text>
+  is a conditional statement*/
+  return (
+    <View style={styles.body}>
+      <Text style={styles.text}>{name} 's First App</Text>
+      <Text style={styles.text}>This is a session number '{session.number}' and
+        about {session.title}</Text>
+      <Text style={styles.text}>{current ? 'current session' : 'next session'}</Text>
+      <Button title='Change Owner' onPress={onClickHandler}></Button>
+    </View>
+  )
+}
+const styles = StyleSheet.create({
+  body: {
+    flex: 1,
+    backgroundColor: '#0000ff',
+    alignItems: 'center',
+    textAlign: 'center',
+    justifyContent: 'center'
+  },
+  text: {
+    color: '#ffffff',
+    fontSize: 20,
+    fontStyle: 'italic',
+    margin: 10
+  }
+})
+export default App;
+⸻⸻⸻⸻1st Assignment⸻⸻⸻⸻⸻
+import React, { useState } from 'react'
+import {
+  Text,
+  View,
+  StyleSheet,
+  Button
+} from 'react-native'
+const Counter = () => {
+  const [number, setNumber] = useState(0)
+  const [number_2, setNumber_2] = useState(0)
+  const onClickHandler = () => {
+    setNumber(number + 5)
+    setNumber
+    _2(number_2 + 1)
+  }
+  return (
+    <View style={styles.body}>
+      <Text style={styles.text}>{number}</Text>
+      <Button title='ADD' onPress={onClickHandler}></Button>
+      <Text style={styles.text}>You Clicled {number_2} times</Text>
+    </View>
+  )
+}
+const styles = StyleSheet.create({
+  body: {
+    backgroundColor: '#00ffff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1
+  },
+  text: {
+    margin: 10,
+    fontSize: 20
+  }
+})
+export default Counter;
+⸻⸻⸻⸻⸻—3rd practice code⸻⸻⸻⸻⸻⸻
+import React from 'react';
+import {
+  Text,
+  View,
+  StyleSheet,
+  Button
+} from 'react-native';
+/*as button don't have any styles we put button component in a separate view
+to style it */
+const App = () => {
+  return (
+    <View style={styles.body}>
+      <Text style={styles.text}>Testing components</Text>
+      <View style={styles.button}><Button title='Im a Button'></Button></View>
+      <View style={container}>
+        <Text style={stylesheettext}>stylesheet compose use</Text>
+      </View>
+    </View>
+  )
+}
+const styles = StyleSheet.create({
+  body: {
+    /*flex:1, instead of flex we used width and height*/
+    width: '100%',
+    height: '50%',
+    backgroundColor: '#ffff00',
+    alignItems: 'center',
+    textAlign: 'center',
+    justifyContent: 'center',
+    borderWidth: 10,
+    borderColor: '#ff00ff',
+    borderRadius: 5,
+  },
+  text: {
+    color: '#000000',
+    fontSize: 20,
+    fontStyle: 'italic',
+    textDecorationLine: 'underline line-through',
+    textDecorationColor: '#ff00ff',/*will only work on ios the lines color will
+change */
+    textTransform: 'capitalize',
+    margin: 10,
+  },
+  button: {
+    width: 120,
+    height: 50,
+    backgroundcolor: '#ff00ff'
+  }
+})
+const page = StyleSheet.create({
+  cont: {
+    flex: 0.5,
+    padding: 24,
+    backgroundColor: '#fff',
+  },
+  text: {
+    fontSize: 20,
+    color: '#000',
+  },
+});
+const lists = StyleSheet.create({
+  listContainer: {
+    flex: 0.5,
+    backgroundColor: '#61dafb',
+  },
+  listItem: {
+    fontStyle: 'italic',
+    fontWeight: 'bold',
+  },
+});
+/*stylesheet compose is used to combine two stylesheets and the using them
+as single stylesheet */
+const stylesheettext = StyleSheet.compose(page.text, lists.listItem)
+const container = StyleSheet.compose(page.cont, lists.listContainer)
+export default App;
+⸻⸻⸻⸻⸻⸺flex box related⸻⸻⸻⸻⸻—
+import React from 'react'
+import { View, Text, Button, StyleSheet } from 'react-native'
+const FlexApp = () => {
+  return (
+    <View style={styles.body}>
+      <View style={styles.view1}>
+        <Text style={styles.text}>1</Text>
+      </View>
+      <View style={styles.view2}>
+        <Text style={styles.text}>2</Text>
+      </View>
+      <View style={styles.view3}>
+        <Text style={styles.text}>3</Text>
+      </View>
+    </View>
+  )
+}
+const styles = StyleSheet.create({
+  body: {
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: '#f0f000',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  text: {
+    color: '#000f00',
+    fontSize: 40
+  },
+  view1: {
+    width: 100,
+    height: 100,
+    backgroundColor: '#00ffff',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  view2: {
+    width: 100,
+    height: 100,
+    backgroundColor: '#ff00ff',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  view3: {
+    width: 100,
+    height: 100,
+    backgroundColor: '#00ff00',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+})
+export default FlexApp;
+⸻⸻⸻⸻⸻—flex exercise⸻⸻⸻⸻⸻⸻—
+import React from 'react';
+import { Text, View, StyleSheet } from 'react-native';
+const YourApp = () => {
+  return (
+    <View
+      style={styles.body}>
+      <View
+        style={styles.body1}>
+        <View style={styles.view1}>
+          <Text>1</Text>
+        </View>
+        <View style={styles.view2}>
+          <Text>2</Text>
+        </View>
+        <View style={styles.view3}>
+          <Text>3</Text>
+        </View>
+      </View>
+      <View
+        style={styles.body2}>
+        <View style={styles.view4}>
+          <Text>4</Text>
+        </View>
+        <View style={styles.view5}>
+          <Text>5</Text>
+        </View>
+      </View>
+      <View
+        style={styles.body3}>
+        <View style={styles.view6}>
+          <Text>6</Text>
+        </View>
+        <View style={styles.view7}>
+          <Text>7</Text>
+        </View>
+      </View>
+    </View>
+  );
+};
+const styles = StyleSheet.create({
+  body: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
+  body1: {
+    flex: 0.15,
+    flexDirection: 'row',
+    backgroundColor: '#00ff00',
+    alignItems: 'stretch',
+    justifyContent: 'center',
+  },
+  view1: {
+    backgroundColor: '#0000ff',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  view2: {
+    backgroundColor: '#ff00ff',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  view3: {
+    backgroundColor: '#00ffff',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  body2: {
+    flex: 0.3,
+    width: '100%',
+    flexDirection: 'column',
+    alignItems: 'stretch',
+    textAlign: 'center',
+    justifyContent: 'center',
+  },
+  view4: {
+    backgroundColor: '#f0000f',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  view5: {
+    backgroundColor: '#ffff00',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  body3: {
+    flex: 0.8,
+    flexDirection: 'row',
+    backgroundColor: '#00ff00',
+    alignItems: 'stretch',
+    justifyContent: 'center',
+  },
+  view6: {
+    backgroundColor: '#ffffff',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  view7: {
+    backgroundColor: '#00ff00',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+})
+export default YourApp;
+⸻⸻⸻⸻⸻⸺list scrollview refresh - page⸻⸻⸻⸻
+import React, { useState } from 'react'
+import { View, Text, StyleSheet, ScrollView, RefreshControl } from 'react-native'
+const MapApp = () => {
+  const [Item, setItem] = useState([
+    { key: 1, item: 'Item 1' },
+    { key: 2, item: 'Item 2' },
+    { key: 3, item: 'Item 3' },
+    { key: 4, item: 'Item 4' },
+    { key: 5, item: 'Item 5' },
+    { key: 6, item: 'Item 6' },
+    { key: 7, item: 'Item 7' },
+    { key: 8, item: 'Item 8' },
+  ])
+  const [Refrehsing, setRefreshing] = useState(false)
+  const refresh = () => {
+    setItem([...Item, { key: 9, item: 'Item 9' }]);
+    setRefreshing(false)
+  }
+  /*in the map function we can use any name to represent the object
+  we can replace main view with scrollview and nothing in the screen will get
+  effected
+  scrollview is by default vertical but we can change it using horizontal property
+  adn no need to mention that horizontal property if we need the list vertically
+  we can change the color of refreshing spinner using the line
+  <RefreshControl refreshing={Refrehsing} onRefresh={refresh}
+  colors={['#ff00ff']}/>*/
+  return (
+    <ScrollView horizontal={false} style={styles.body} refreshControl={
+      <RefreshControl refreshing={Refrehsing} onRefresh={refresh}
+        colors={['#00ffff']} />
+    }>
+      {
+        Item.map((object) => {
+          return (
+            <View style={styles.item}>
+              <Text style={styles.text}>{object.item}</Text>
+            </View>
+          )
+        })
+      }
+    </ScrollView>
+  )
+}
+const styles = StyleSheet.create({
+  body: {
+    flex: 1,
+    backgroundColor: '#ffffff'
+  },
+  item: {
+    margin: 10,
+    backgroundColor: '#ff00ff',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  text: {
+    fontSize: 50,
+    margin: 10
+  }
+})
+export default MapApp;
+⸻⸻⸻⸻—FlatList SectionList with Nested Array -
+⸻⸻⸻⸻
+FLATLIST
+import React, { useState } from 'react'
+import { View, Text, StyleSheet, ScrollView, RefreshControl, FlatList } from 'react-
+native'
+const MapApp = () => {
+  const [Item, setItem] = useState([
+    { name: 'Item 1' },
+    { name: 'Item 2' },
+    { name: 'Item 3' },
+    { name: 'Item 4' },
+    { name: 'Item 5' },
+    { name: 'Item 6' },
+    { name: 'Item 7' },
+    { name: 'Item 8' },
+  ])
+  const [Refrehsing, setRefreshing] = useState(false)
+  const refresh = () => {
+    setItem([...Item, { name: 'Item 9' }]);
+    setRefreshing(false)
+  }
+  /*we define a keyExtractor to get key
+  and we don't need keys in array for flatlist if we keep keeps the value should
+  be a string like
+  {key:'1', name:'Item 1'},
+  {key:'2', name:'Item 2'},
+  numColumns define how many coloums should be displayed
+  it diosplays items vertically by default we can change it by using 'horizontal'
+  property
+  and it has 'inverted' property to start list from right to left in case of
+  horizontal*/
+  return (
+    <FlatList
+      numColumns={1}
+      inverted
+      keyExtractor={(item, index) => index.toString()}
+      data={Item}
+      renderItem={({ item }) => (
+        <View style={styles.item}>
+          <Text style={styles.text}>{item.name}</Text>
+        </View>
+      )}
+      refreshControl={<RefreshControl refreshing={Refrehsing}
+        onRefresh={refresh}
+        colors={['#00ffff']} />}
+    />
+  )
+}
+const styles = StyleSheet.create({
+  item: {
+    margin: 10,
+    backgroundColor: '#ff00ff',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  text: {
+    fontSize: 50,
+    margin: 10
+  }
+})
+export default MapApp;
+SECTIONLIST
+import React, { useState } from 'react'
+import { View, Text, StyleSheet, ScrollView, RefreshControl, FlatList, SectionList }
+  from 'react-native'
+const MapApp = () => {
+  const DATA = [
+    {
+      title: 'Title 1',
+      data: ['Item 1-1', 'Item 1-2']
+    },
+    {
+      title: 'Title 2',
+      data: ['Item 2-1', 'Item 2-2']
+    },
+    {
+      title: 'Title 3',
+      data: ['Item 3-1', 'Item 3-2']
+    },
+    {
+      title: 'Title 4',
+      data: ['Item 4-1', 'Item 4-2']
+    },
+  ]
+  return (
+    <SectionList
+      keyExtractor={(item, index) => index.toString()}
+      sections={DATA}
+      renderItem={({ item }) => (
+        <Text style={styles.text}>{item}</Text>
+      )}
+      renderSectionHeader={({ section }) => (
+        <View style={styles.item}>
+          <Text style={styles.text}>{section.title}</Text>
+        </View>
+      )}
+    />
+  )
+}
+const styles = StyleSheet.create({
+  item: {
+    margin: 10,
+    backgroundColor: '#ff00ff',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  text: {
+    fontSize: 50,
+    margin: 10
+  }
+})
+export default MapApp;
+⸻⸻⸻⸺Exercise⸻⸻⸻⸻
+import React, { useState } from 'react'
+import { View, Text, StyleSheet, ScrollView, RefreshControl, FlatList, SectionList }
+  from 'react-native'
+const MapApp = () => {
+  const [Refresh, SetRefresh] = useState(false)
+  const [number, setNumber] = useState(2)
+  const [DATA, setData] = useState([
+    {
+      title: 'Title 1',
+      data: ['Item 1-1', 'Item 1-2']
+    },
+  ])
+  /*got two title 1 s if i set number as 1 at begining so i set it to 2*/
+  const refresh = () => {
+    setNumber(number => number + 1)
+    setData([...DATA, {
+      title: 'Title' + number,
+      data: ['Item ' + number + '-1', 'Item ' + number + '-2']
+    }])
+    SetRefresh(false)
+  }
+  return (
+    <SectionList style={styles.sectionListContainer}
+      keyExtractor={(item, index) => index.toString()}
+      sections={DATA}
+      renderItem={({ item }) => (
+        <View style={styles.item1}><Text style={styles.text}>{item}</Text></View>
+      )}
+      renderSectionHeader={({ section }) => (
+        <View style={styles.item}>
+          <Text style={styles.text}>{section.title}</Text>
+        </View>
+      )}
+      refreshControl={<RefreshControl
+        refreshing={Refresh}
+        onRefresh={refresh}
+      />}
+    />
+  )
+}
+const styles = StyleSheet.create({
+  sectionListContainer: {
+    marginTop: 20
+  },
+  item: {
+    borderWidth: 3,
+    backgroundColor: '#ff00ff',
+    alignItems: 'center',
+    justifyContent: 'center', borderStyle: 'solid',
+    borderColor: '#000000',
+  },
+  item1: {
+    backgroundColor: '#ffffff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderTopWidth: 1,
+    borderBottomWidth: 1
+  },
+  text: {
+    fontSize: 50,
+    margin: 10,
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+})
+export default MapApp;
